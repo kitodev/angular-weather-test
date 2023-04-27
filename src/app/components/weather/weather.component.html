@@ -1,0 +1,42 @@
+<div class="u-flex-col">
+    <div class="u-flex-1">
+        <button [routerLink]="'/capitals'" aria-label="Open icon" color="primary" mat-fab type="button">
+            <mat-icon>sort</mat-icon>
+        </button>
+        <mat-chip-listbox aria-label="Selected capital">
+            <mat-chip *ngIf="selectedCountryAndWeatherData as data">
+                <img [alt]="data.country.flags.alt" [src]="data.country.flags.png" matChipAvatar />
+                <span class="u-mx-10"><b>{{data.country.capital[0]}}</b>,</span>
+                <span class="u-mx-10">{{data.country.name.common}}</span>
+            </mat-chip>
+        </mat-chip-listbox>
+    </div>
+    <div class="u-flex-1">
+        <mat-card *ngIf="selectedCountryAndWeatherData as data">
+            <mat-card-header>
+                <mat-card-title-group>
+                    <mat-card-title>{{data.weather.main.feels_like | number : '1.0-0' | degree}}</mat-card-title>
+                    <mat-card-subtitle>
+                        <p>{{data.weather.weather[0].description}}</p>
+                        <p>Min: {{data.weather.main.temp_min | number : '1.0-0' | degree}}  / Max: {{data.weather.main.temp_max | number : '1.0-0' | degree}}</p>
+                    </mat-card-subtitle>
+                    <img [alt]="data.weather.weather[0].description" [src]="data.weather.weather[0].icon" mat-card-sm-image />
+                </mat-card-title-group>
+            </mat-card-header>
+        </mat-card>
+
+        <div id="chartdiv" style="width: 100%; height: 500px"></div>
+
+        <!-- <div class="current-weather d-flex flex-column" style="background: white;">
+            <div class="d-flex">
+              <div *ngFor="let item of fiveDayWeather">
+                <img [src]="item.icon" alt="" width="50px" height="50px" style="border-radius: 50%;">
+                <div class="d-flex justify-content-between me-2" style="width: 40px;">
+                  <span>{{item.main.temp_min.toFixed(0)}}</span>
+                  <span>{{item.main.temp_max.toFixed(0)}}</span>
+                </div>
+              </div>
+            </div>
+          </div> -->
+    </div>
+</div>

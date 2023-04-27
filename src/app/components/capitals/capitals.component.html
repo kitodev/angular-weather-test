@@ -1,0 +1,26 @@
+<div class="u-flex-col">
+    <div class="u-flex-1">
+        <button [routerLink]="'/weather'" aria-label="Close icon" color="primary" mat-fab>
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+        <h1>Capitals</h1>
+    </div>
+    <div *ngIf="countriesAndWeatherData$ | async as countriesAndWeatherData; else loading" class="u-flex-1 align-items-center list-of-capitals">
+        <mat-chip-listbox aria-label="List of capitals" class="d-flex justify-content-between align-items-center mb-2 capitals-widget">
+            <mat-chip-option (click)="updateCountryAndWeatherData(data)" *ngFor="let data of countriesAndWeatherData"
+                             [selected]="data.country.cca2 === current.country.cca2" class="current-country">
+                <img [alt]="data.country.flags.alt" [src]="data.country.flags.png" matChipAvatar />
+                <span class="chip-content-container">
+                    <span class="u-mx-10"><b>{{data.country.capital[0]}}</b></span>
+                    <span class="u-mx-6">{{data.country.name.common}}</span>
+                    <span class="u-mx-10">{{data.weather.main.feels_like | number : '1.0-0' | degree}}</span>
+                    <img [alt]="data.weather.weather[0].description" [src]="data.weather.weather[0].icon" />
+                </span>
+            </mat-chip-option>
+        </mat-chip-listbox>
+    </div>
+</div>
+
+<ng-template #loading>
+    <mat-spinner></mat-spinner>
+</ng-template>

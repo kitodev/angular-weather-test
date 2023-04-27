@@ -1,0 +1,26 @@
+.chip-content-container {
+    display: flex;
+    align-items: center;
+}
+
+
+h1{
+  color: white;
+  font-weight: 500;
+  font-size: 40px;
+}
+
+.list-of-capitals{
+  margin-top: 7%;
+  height: 82%;
+  overflow: auto;
+  width: 50%;
+}
+
+.mat-mdc-standard-chip {
+  background: white !important;
+}
+
+.current-country {
+  color: black !important;
+}

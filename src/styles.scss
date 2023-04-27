@@ -1,0 +1,24 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background: #E8EEF4;
+}
+
+.u-mx-10 {
+    margin: 0 10px;
+}
+
+.u-flex-col {
+    display: flex;
+    margin: 0 auto;
+    padding: 15px 0;
+    width: 1000px;
+}
+
+.u-flex-1 {
+    flex: 1;
+}

@@ -1,0 +1,27 @@
+.location{
+  height: 16px;
+  width: 20px;
+  font-size: 16px;
+  color: #95B844;
+}
+
+.layers{
+  background: white;
+  font-size: 20px;
+  height: 38px;
+  width: 38px;
+  padding: 9px;
+  border-radius: 50%;
+}
+
+.current-weather{
+  border-radius: 14px;
+  padding: 10px;
+  width: 280px;
+}
+
+.temp{
+  font-size: 32px;
+  color: white;
+  font-weight: 500;
+}
